@@ -1,0 +1,17 @@
+rejester:
+  registry_addresses: [ 'redis.example.com:6379' ]
+  namespace: kba2014sjb
+
+kvlayer:
+  app_name: kba
+  namespace: kba2014
+  storage_type: accumulo
+  storage_addresses: [ 'test-accumulo-1.example.com:50096' ]
+  username: root
+  password: secret
+
+elasticsearch:
+  cluster:
+     - 'host' : '128.52.160.99'
+       'port' : 9200
+

@@ -1,0 +1,21 @@
+rejester:
+  registry_addresses: [ '128.52.160.99:6379' ]
+  namespace: kba2014
+
+kvlayer: &kvlayer
+  app_name: kba
+  namespace: kba2014
+  storage_type: accumulo
+  storage_addresses: [ '128.52.160.99:50096' ]
+  username: root
+  password: secret
+
+logging:
+  handlers:
+    dblogger:
+      class: dblogger.DatabaseLogHandler
+      storage_config: *kvlayer
+      level: INFO
+  root:
+    handlers: [console, dblogger]
+    level: NOTSET
