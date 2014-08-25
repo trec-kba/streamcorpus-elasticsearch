@@ -16,7 +16,7 @@ import elasticsearch
 
 import logging
 
-from diffeo_search_tools import elasticsearch_loader
+from streamcorpus_elasticsearch import loader
 
 logger = logging.getLogger(__name__)
 

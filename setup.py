@@ -44,7 +44,11 @@ setup(
         'kvlayer >= 0.4.0',
         'dblogger >= 0.4.0',
         'streamcorpus >= 0.3.27',
+        'streamcorpus_pipeline',
         'elasticsearch',
     ],
     include_package_data = True,
+    entry_points= {
+        'streamcorpus_pipeline.stages': 'elasticsearch_writer = streamcorpus_elasticsearch:writer',
+    },
 )
