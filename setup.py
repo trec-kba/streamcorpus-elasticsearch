@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 from version import get_git_version
 VERSION, SOURCE_HASH = get_git_version()
-PROJECT = 'streamcorpus-elasticsearch'
+PROJECT = 'streamcorpus_elasticsearch'
 URL = 'https://github.com/trec-kba'
 AUTHOR = 'Diffeo, Inc.'
 AUTHOR_EMAIL = 'support@diffeo.com'
