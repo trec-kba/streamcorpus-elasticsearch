@@ -13,6 +13,17 @@ def stream_item_to_json(stream_item):
     The fields created in this JSON object will be indexed by
     elasticsearch, so this is essentially the index configuration.    
     '''
+    ## TODO: figure out how to cause elasticsearch to treat these
+    ## fields as ``typed`` in some way.  For example, the abs_url
+    ## really should become a clickable link URL, does it need to be
+    ## renamed for elasticsearch to figure that out?  Or can we load a
+    ## schema?  
+
+    ## Can the `timestamp` field be identified here as the thing to
+    ## use for building time series?
+
+    ## Can we turn on fancier indexing for the primary body text,
+    ## which is `clean_visible`?
     doc = {
         'timestamp' : datetime.datetime.utcfromtimestamp(stream_item.stream_time.epoch_ticks),
         'abs_url' : stream_item.abs_url,
@@ -20,6 +31,7 @@ def stream_item_to_json(stream_item):
         'language' : stream_item.body.language.name,
         'stream_id' : stream_item.stream_id,
         'doc_id' : stream_item.doc_id,
+        'source' : stream_item.source or 'UNKNOWN',        
     }
     return doc
 
